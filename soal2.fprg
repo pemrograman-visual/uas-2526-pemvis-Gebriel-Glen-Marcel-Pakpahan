@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="soal 2"/>
+        <attribute name="authors" value="MUG1II"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 03:00:49 PM"/>
+        <attribute name="created" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAyOjQ2OjQ0IFBNOzI3ODA="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAyOjQ3OjA0IFBNOzE7TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAxOjE3OjQzIFBNOzU3MjA="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAyOjUxOjUzIFBNOzE7TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAyOjExOjExIFBNO3NvYWwgMS5mcHJnOzY3NTc="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAzOjAwOjQ5IFBNOzE7Mjg4NA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, stokAwal, terjual, sisa" type="Integer" array="False" size=""/>
+            <declare name="nama, status" type="String" array="False" size=""/>
+            <input variable="n"/>
+            <output expression="&quot;Nama:  StokAwal:  Terjual:  Sisa:   Status: &quot;" newline="True"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <input variable="nama"/>
+                <input variable="stokAwal"/>
+                <if expression="stokAwal&gt;=0">
+                    <then/>
+                    <else>
+                        <output expression="&quot;INVALID&quot;" newline="True"/>
+                        <breakpoint expression="" always="True"/>
+                    </else>
+                </if>
+                <input variable="terjual"/>
+                <if expression="terjual &gt; 0 &amp;&amp; terjual &lt; stokAwal">
+                    <then/>
+                    <else>
+                        <output expression="&quot;INVALID&quot;" newline="True"/>
+                        <breakpoint expression="" always="True"/>
+                    </else>
+                </if>
+                <assign variable="sisa" expression="stokAwal - terjual"/>
+                <call expression="stasss(sisa)"/>
+                <output expression="nama &amp; &quot;  :  &quot; &amp; stokAwal &amp; &quot;   :    &quot; &amp; terjual &amp; &quot;   :    &quot; &amp; sisa &amp; &quot;  :   &quot; &amp; stasss(sisa)" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="stasss" type="String" variable="status">
+        <parameters>
+            <parameter name="sisa" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="status" type="String" array="False" size=""/>
+            <if expression="sisa == 0">
+                <then>
+                    <assign variable="status" expression="&quot;Habis, segera restock!&quot;"/>
+                </then>
+                <else>
+                    <if expression="sisa &lt; 5">
+                        <then>
+                            <assign variable="status" expression="&quot;Stok menipis&quot;"/>
+                        </then>
+                        <else>
+                            <if expression="sisa &gt;= 5">
+                                <then>
+                                    <assign variable="status" expression="&quot;Stok aman&quot;"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

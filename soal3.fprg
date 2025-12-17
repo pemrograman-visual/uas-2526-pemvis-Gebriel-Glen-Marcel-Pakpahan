@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="soal 3"/>
+        <attribute name="authors" value="MUG1II"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 03:21:24 PM"/>
+        <attribute name="created" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAzOjAwOjU2IFBNOzI3NzQ="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAzOjAzOjQ0IFBNOzE7TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAxOjE3OjQzIFBNOzU3MTc="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAzOjIxOjI0IFBNOzI7Mjg4MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="N, i, M, j, daya, subTotal, grandTotal" type="Integer" array="False" size=""/>
+            <declare name="nama" type="String" array="False" size=""/>
+            <assign variable="grandTotal" expression="0"/>
+            <input variable="N"/>
+            <for variable="i" start="1" end="N" direction="inc" step="1">
+                <input variable="nama"/>
+                <input variable="M"/>
+                <if expression="M &lt; 10">
+                    <then/>
+                    <else>
+                        <output expression="&quot;INVALID&quot;" newline="True"/>
+                        <breakpoint expression="" always="True"/>
+                    </else>
+                </if>
+                <assign variable="subTotal" expression="0"/>
+                <for variable="j" start="1" end="M" direction="inc" step="1">
+                    <input variable="daya"/>
+                    <if expression="daya&gt;=0">
+                        <then>
+                            <assign variable="subTotal" expression="subTotal + daya"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;INVALID&quot;" newline="True"/>
+                            <breakpoint expression="" always="True"/>
+                        </else>
+                    </if>
+                </for>
+                <output expression="nama &amp; &quot; = &quot; &amp; subTotal &amp; &quot; wh&quot;" newline="True"/>
+                <assign variable="grandTotal" expression="grandTotal + subTotal"/>
+            </for>
+            <output expression="output(grandTotal)" newline="True"/>
+        </body>
+    </function>
+    <function name="output" type="String" variable="yh">
+        <parameters>
+            <parameter name="grandTotal" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="yh" type="String" array="False" size=""/>
+            <assign variable="yh" expression="&quot;Total konsumsi kamar = &quot; &amp; grandTotal &amp; &quot; wh&quot;"/>
+            <if expression="grandTotal &lt;= 10000">
+                <then>
+                    <assign variable="yh" expression="&quot;Konsumsi masih dalam batas wajar.&quot;"/>
+                </then>
+                <else>
+                    <assign variable="yh" expression="&quot;Peringatan: Konsumsi daya berlebih!&quot;"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

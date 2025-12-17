@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="soal 5"/>
+        <attribute name="authors" value="MUG1II"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 04:25:08 PM"/>
+        <attribute name="created" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzA0OjE0OjIxIFBNOzI3NzI="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzA0OjE2OjU5IFBNOzI7TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzA0OjEyOjMyIFBNO3NvYWw1LmZwcmc7Njc0NQ=="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzA0OjI1OjA4IFBNOzE7Mjg4Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, totalLolos, junk" type="Integer" array="False" size=""/>
+            <declare name="status" type="String" array="False" size=""/>
+            <assign variable="totalLolos" expression="0"/>
+            <input variable="n"/>
+            <declare name="namaArr" type="String" array="True" size="n"/>
+            <declare name="ipkArr" type="Real" array="True" size="n"/>
+            <declare name="gajiArr" type="Integer" array="True" size="n"/>
+            <for variable="i" start="0" end="n - 1" direction="inc" step="1">
+                <input variable="namaArr[i]"/>
+                <input variable="ipkArr[i]"/>
+                <input variable="gajiArr[i]"/>
+                <input variable="junk"/>
+            </for>
+            <for variable="i" start="0" end="n - 1" direction="inc" step="1">
+                <assign variable="status" expression="cekkelulusan(ipkArr[i], gajiArr[i])"/>
+                <output expression="namaArr[i] &amp; &quot; &#8594;  &quot; &amp; status" newline="True"/>
+                <if expression="status == &quot;Lolos Syarat Awal&quot;">
+                    <then>
+                        <assign variable="totalLolos" expression="totalLolos + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;Total pendaftar lolos: &quot; &amp; totalLolos" newline="True"/>
+        </body>
+    </function>
+    <function name="cekkelulusan" type="String" variable="hasil">
+        <parameters>
+            <parameter name="nilaiIPK" type="Real" array="False"/>
+            <parameter name="nilaiGaji" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="hasil" type="String" array="False" size=""/>
+            <if expression="nilaiIPK &gt;= 3.0 and nilaiGaji &lt;= 3000000">
+                <then>
+                    <assign variable="hasil" expression="&quot;Lolos Syarat Awal&quot;"/>
+                </then>
+                <else>
+                    <assign variable="hasil" expression="&quot;Tidak Lolos&quot;"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

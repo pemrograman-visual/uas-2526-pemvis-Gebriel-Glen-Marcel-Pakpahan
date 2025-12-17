@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="soal 4"/>
+        <attribute name="authors" value="MUG1II"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 04:05:47 PM"/>
+        <attribute name="created" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAzOjIxOjUyIFBNOzI3NzM="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAzOjU4OjA0IFBNOzM7TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzAxOjE3OjQzIFBNOzU3MjU="/>
+        <attribute name="edited" value="TVVHMUlJO0xBUFRPUC1CQ00wRUxJUzsyMDI1LTEyLTE3OzA0OjA1OjQ3IFBNOzM7Mjg5MA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, shift, total, maxVal, minVal" type="Integer" array="False" size=""/>
+            <declare name="nama, maxName, minName" type="String" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <input variable="n"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <input variable="nama"/>
+                <input variable="shift"/>
+                <output expression="nama &amp; &quot; = &quot; &amp; shift" newline="True"/>
+                <assign variable="total" expression="total + shift"/>
+                <if expression="i == 1">
+                    <then>
+                        <assign variable="maxVal" expression="shift"/>
+                        <assign variable="maxName" expression="nama"/>
+                        <assign variable="minVal" expression="shift"/>
+                        <assign variable="minName" expression="nama"/>
+                    </then>
+                    <else>
+                        <if expression="shift &gt; maxVal">
+                            <then>
+                                <assign variable="maxVal" expression="shift"/>
+                                <assign variable="maxName" expression="nama"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <if expression="shift &lt; minVal">
+                            <then>
+                                <assign variable="minVal" expression="shift"/>
+                                <assign variable="minName" expression="nama"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;Total shift = &quot; &amp; total" newline="True"/>
+            <output expression="&quot;Rata-rata = &quot; &amp; (total / n)" newline="True"/>
+            <output expression="&quot;Shift terbanyak: &quot; &amp; maxName &amp; &quot; (&quot; &amp; maxVal &amp; &quot;)&quot;" newline="True"/>
+            <output expression="&quot;Shift tersedikit: &quot; &amp; minName &amp; &quot; (&quot; &amp; minVal &amp; &quot;)&quot;" newline="True"/>
+            <output expression="output(maxVal, minVal)" newline="True"/>
+        </body>
+    </function>
+    <function name="output" type="String" variable="yh">
+        <parameters>
+            <parameter name="maxVal" type="Integer" array="False"/>
+            <parameter name="minVal" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="yh" type="String" array="False" size=""/>
+            <if expression="(maxVal - minVal) &gt; 3">
+                <then>
+                    <assign variable="yh" expression="&quot;Distribusi shift tidak merata, beberapa asisten terbebani.&quot;"/>
+                </then>
+                <else>
+                    <assign variable="yh" expression="&quot;Distribusi shift cukup merata.&quot;"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
